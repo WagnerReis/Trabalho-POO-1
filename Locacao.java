@@ -7,6 +7,7 @@ public class Locacao{
     private int quanti;
     
     ArrayList<DVD> dvd = new ArrayList<>();
+    
 
     public Locacao(Cliente cliente) {
         super();
@@ -66,8 +67,11 @@ public class Locacao{
         return soma;
     }
     
-    void EmitirRecibo(){
+    //Achei interessante colocar a data de locação no recibo
+    
+    void EmitirRecibo(String data){
         System.out.println("Nome do cliente: " + cliente.getNome() + " , Codigo: " + cliente.getCodigo());
+        System.out.println("Data da locação: " + data);    
         for(int i = 0; i < dvd.size(); i++){
             System.out.println("Codigo do DVD: " + dvd.get(i).getCodigo() + " , Titulo: " + dvd.get(i).getTitulo() + 
                                 "\nValor de locação: " + dvd.get(i).getValor());

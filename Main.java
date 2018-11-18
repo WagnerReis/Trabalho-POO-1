@@ -30,6 +30,14 @@ public class Main {
             d[i] = new DVD();
         }
         
+        System.out.println("-------------------------------------------\n");
+        
+        for (int i = 0; i < nDvds; i++) {
+            System.out.println(d[i].toString());
+        }
+        
+        System.out.println("-------------------------------------------\n");
+        
         sc.nextLine();
         System.out.println("Informe o nome do clinte para locação: ");
         nome = sc.nextLine();
@@ -43,24 +51,24 @@ public class Main {
                 l.setQuanti(sc.nextInt());
                 
                 sc.nextLine();
-
-                for (int j = 0; j < l.getQuanti(); j++) {
-
-                    System.out.println("Informe o nome do DVD: ");
+                System.out.println("Informe o nome do DVD: ");
                     nomeDvd = sc.nextLine();
-
-                    for (i = 0; i < nDvds; i++) {
-                        if (d[i].getTitulo().equals(nomeDvd)) {
-
+                    
+                for (int j = 0; j < l.getQuanti(); j++) {
+                     for (i = 0; i < nDvds; i++){
+                        if(d[i].verificaEstoque(l.getQuanti(), nomeDvd ) == true ){
                             l.adicionarDVD(d[i]);
-
-                            System.out.println("Informe a data de locacao: ");
-                            l.setData_locacao(sc.nextLine());
+                        }else{
+                            System.exit(0); 
                         }
                     }
                 }
+                
+                System.out.println("Informe a data de locacao: ");
+                l.setData_locacao(sc.nextLine());
+                
                 total = l.calcularValorTotal();
-                l.EmitirRecibo();
+                l.EmitirRecibo(l.getData_locacao());
                
             }
 

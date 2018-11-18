@@ -112,15 +112,33 @@ public class DVD{
 
     @Override
     public String toString() {
-        return "DVD{" + "codigo=" + codigo + ", titulo=" + titulo + ", ator1=" + ator1 + ", ator2=" + ator2 + ", diretor=" + diretor + ", categoria=" + categoria + ", caracteristica=" + caracteristica + ", valor=" + valor + ", quantidade=" + quantidade + '}';
+        return "DVD{" + "\nCodigo: " + codigo + ", titulo: " + titulo + ", ator1: " + ator1 + 
+                "\nAtor2: " + ator2 + ", diretor: " + diretor + ", categoria: " + categoria + 
+                "\nCaracteristica: " + caracteristica + ", valor: " + valor + ", quantidade: " + quantidade + "\n" + '}';
     }
     
-    public boolean verificaEstoque(int n){
-        if(this.quantidade >= n ){
+    /*public boolean verificaEstoque(int n, String tituloFilme){
+        if((this.quantidade >= n) && (this.titulo.equals(tituloFilme))){
             return true;
         }else{
             return false;
         }
+    }*/
+    
+     public boolean verificaEstoque(int n, String tituloFilme){
+         boolean opcao = false;
+        if(this.quantidade >= n){
+            if( this.titulo.equals(tituloFilme)){
+                opcao = true;
+            }else{
+                System.out.println("Titulo nao corresponde");
+            }
+            
+        }else{
+            System.out.println("Quantidade maior do que disponivel em estoque!");
+            opcao = false;
+        }
+        return opcao; 
     }
     
     public void darBaixa(){
