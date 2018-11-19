@@ -67,11 +67,8 @@ public class Locacao{
         return soma;
     }
     
-    //Achei interessante colocar a data de locação no recibo
-    
-    void EmitirRecibo(String data){
+    void EmitirRecibo(){
         System.out.println("Nome do cliente: " + cliente.getNome() + " , Codigo: " + cliente.getCodigo());
-        System.out.println("Data da locação: " + data);    
         for(int i = 0; i < dvd.size(); i++){
             System.out.println("Codigo do DVD: " + dvd.get(i).getCodigo() + " , Titulo: " + dvd.get(i).getTitulo() + 
                                 "\nValor de locação: " + dvd.get(i).getValor());

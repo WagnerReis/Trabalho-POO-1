@@ -68,7 +68,7 @@ public class Main {
                 l.setData_locacao(sc.nextLine());
                 
                 total = l.calcularValorTotal();
-                l.EmitirRecibo(l.getData_locacao());
+                l.EmitirRecibo();
                
             }
 
